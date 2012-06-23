@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Book:</b>
+  <%= @sell.book_id %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @sell.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_sell_path(@sell) %> |
+<%= link_to 'Back', sells_path %>

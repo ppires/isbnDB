@@ -1,0 +1,25 @@
+<h1>Listing sells</h1>
+
+<table>
+  <tr>
+    <th>Book</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sells.each do |sell| %>
+  <tr>
+    <td><%= sell.book_id %></td>
+    <td><%= sell.price %></td>
+    <td><%= link_to 'Show', sell %></td>
+    <td><%= link_to 'Edit', edit_sell_path(sell) %></td>
+    <td><%= link_to 'Destroy', sell, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sell', new_sell_path %>

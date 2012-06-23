@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rails g scaffold person name:string birth:date city_id:integer picture_url:string
+rails g scaffold authorship person_id:integer book_id:integer role:string
+rails g scaffold country name:string
+rails g scaffold city name:string country_id:integer
+rails g scaffold book ISBN:string titulo:string genre_id:integer has_ebook:boolean cover_url:string
+rails g scaffold additional_info book_id:integer content:text picture_url:string
+rails g scaffold genre name:string
+rails g scaffold purchase book_id:integer price:float
+rails g scaffold sell book_id:integer price:float

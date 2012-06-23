@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ISBN: MyString
+  titulo: MyString
+  genre_id: 1
+  has_ebook: false
+  cover_url: MyString
+
+two:
+  ISBN: MyString
+  titulo: MyString
+  genre_id: 1
+  has_ebook: false
+  cover_url: MyString

@@ -1,0 +1,27 @@
+<h1>Listing additional_infos</h1>
+
+<table>
+  <tr>
+    <th>Book</th>
+    <th>Content</th>
+    <th>Picture url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @additional_infos.each do |additional_info| %>
+  <tr>
+    <td><%= additional_info.book_id %></td>
+    <td><%= additional_info.content %></td>
+    <td><%= additional_info.picture_url %></td>
+    <td><%= link_to 'Show', additional_info %></td>
+    <td><%= link_to 'Edit', edit_additional_info_path(additional_info) %></td>
+    <td><%= link_to 'Destroy', additional_info, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Additional info', new_additional_info_path %>

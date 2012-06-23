@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  birth: 2012-06-07
+  city_id: 1
+  country_id: 1
+  picture_url: MyString
+
+two:
+  name: MyString
+  birth: 2012-06-07
+  city_id: 1
+  country_id: 1
+  picture_url: MyString

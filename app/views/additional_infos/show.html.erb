@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Book:</b>
+  <%= @additional_info.book_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @additional_info.content %>
+</p>
+
+<p>
+  <b>Picture url:</b>
+  <%= @additional_info.picture_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_additional_info_path(@additional_info) %> |
+<%= link_to 'Back', additional_infos_path %>
