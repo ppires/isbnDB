@@ -15,8 +15,11 @@ ActiveRecord::Schema.define(:version => 20120607180056) do
 
   create_table "additional_infos", :force => true do |t|
     t.integer  "book_id"
-    t.text     "content"
     t.string   "picture_url"
+    t.text     "summary"
+    t.string   "notes"
+    t.string   "related_urls"
+    t.string   "awards"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
