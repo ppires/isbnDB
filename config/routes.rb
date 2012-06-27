@@ -7,7 +7,11 @@ IsbnDB::Application.routes.draw do
 
   resources :additional_infos
 
-  resources :books
+  resources :books do
+    collection do
+      post :search
+    end
+  end
 
   resources :cities
 
@@ -16,6 +20,12 @@ IsbnDB::Application.routes.draw do
   resources :authorships
 
   resources :people
+
+  match 'search/index' => 'search#index', :as => 'search', :via => 'get'
+  match 'search/books' => 'search#books', :as => 'book_search', :via => 'post'
+  match 'search/authors' => 'search#authors', :as => 'author_search', :via => 'post'
+
+  root :to => 'search#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

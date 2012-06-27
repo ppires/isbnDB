@@ -25,6 +25,13 @@ gem 'httparty'
 
 gem 'nokogiri'
 
+# GEMs para usar o mongrel em development no Rails 3
+group :development do
+  gem "mongrel", '>= 1.2.0.pre2'
+  gem "cgi_multipart_eof_fix"
+  gem "fastthread"
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
