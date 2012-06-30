@@ -5,6 +5,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :titulo
       t.integer :genre_id
       t.boolean :has_ebook
+      t.float :price, :default => 0
       t.string :cover_url
 
       t.timestamps

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120607180056) do
     t.string   "notes"
     t.string   "related_urls"
     t.string   "awards"
+    t.date     "release_date", :default => '1900-01-01'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120607180056) do
     t.string   "titulo"
     t.integer  "genre_id"
     t.boolean  "has_ebook"
+    t.float    "price",      :default => 0.0
     t.string   "cover_url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,7 +64,10 @@ ActiveRecord::Schema.define(:version => 20120607180056) do
   end
 
   create_table "people", :force => true do |t|
+    t.string   "isbndb_person_id"
     t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.date     "birth"
     t.integer  "city_id"
     t.integer  "country_id"

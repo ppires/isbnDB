@@ -1,8 +1,13 @@
 class Book < ActiveRecord::Base
   validates_uniqueness_of :ISBN
 
+  has_one :additional_info
+  belongs_to :genre
+  has_many :authorships
+  has_many :authors, :through => :authorships, :source => :person
+  #has_many :editors, :through => :authorships, :class_name => 'Person'
 
-  def self.create_by_title str
+  def self.create_by_title_search str
     BookCrawler.search_by_title(str) do |book_info|
       book = Book.find_or_create_by_ISBN book_info['isbn13'], :titulo => book_info['Title']
       add_info = AdditionalInfo.create :book_id => book.id,
@@ -12,11 +17,19 @@ class Book < ActiveRecord::Base
                                        :awards => book_info['Awardstext']
 
       if book_info['Authors']
-          author = Person.find_or_create_by_name book_info['Authors']['Person']
-          authorship = Authorship.find_or_create_by_person_id_and_book_id author.id, book.id, :role => "Author"
+        author_info = BookCrawler.get_first_author_by_name book_info['Authors']['Person']
+        author = Person.find_or_create_by_isbndb_person_id author_info['person_id']
+        author.update_attributes :name => author_info['Name'],
+                                 :first_name => author_info['Details']['first_name'],
+                                 :last_name => author_info['Details']['last_name']
+        authorship = Authorship.find_or_create_by_person_id_and_book_id author.id, book.id, :role => "Author"
       else
         if book_info['AuthorsText']
-          author = Person.find_or_create_by_name book_info['AuthorsText']
+          author_info = BookCrawler.get_first_author_by_name book_info['AuthorsText']
+          author = Person.find_or_create_by_isbndb_person_id author_info['person_id']
+          author.update_attributes :name => author_info['Name'],
+                                   :first_name => author_info['Details']['first_name'],
+                                   :last_name => author_info['Details']['last_name']
           authorship = Authorship.find_or_create_by_person_id_and_book_id author.id, book.id, :role => "Author"
         end
       end
@@ -24,13 +37,22 @@ class Book < ActiveRecord::Base
       price = 0
       total = 0
       if book_info['Prices']['Price']
-        book_info['Prices']['Price'].each do |price_info|
-          puts "\n"
-          pp price_info
-          if price_info['price']
-            total += 1
-            price += price_info['price'].to_f
+        if (book_info['Prices']['Price'].is_a? Array)
+          book_info['Prices']['Price'].each do |price_info|
+            puts "\n"
+            pp price_info
+            if price_info['price']
+              total += 1
+              price += price_info['price'].to_f
+            end
           end
+        else
+            puts "\n"
+            pp book_info['Prices']['Price']
+            if book_info['Prices']['Price']['price']
+              total += 1
+              price += book_info['Prices']['Price']['price'].to_f
+            end
         end
         price = price / total
       end
@@ -42,9 +64,6 @@ class Book < ActiveRecord::Base
 
     end
   end
-
-
-
 
 
 
