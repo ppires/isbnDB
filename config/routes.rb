@@ -25,6 +25,9 @@ IsbnDB::Application.routes.draw do
   match 'search/books' => 'search#books', :as => 'book_search', :via => 'post'
   match 'search/authors' => 'search#authors', :as => 'author_search', :via => 'post'
 
+  match '/rankings/mais-vendidos' => 'rankings#_mais_vendidos', :as => 'ranking_mais_vendidos', :via => 'get'
+
+
   root :to => 'search#index'
 
   # The priority is based upon order of creation:

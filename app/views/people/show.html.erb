@@ -7,24 +7,23 @@
 
 <p>
   <b>Birth:</b>
-  <%= @person.birth %>
+  <%= @person.birth.strftime("%d/%m/%Y") if @person.birth %>
 </p>
 
 <p>
   <b>City:</b>
-  <%= @person.city_id %>
+  <%= @person.city.name if @person.city_id %>
 </p>
 
 <p>
   <b>Country:</b>
-  <%= @person.country_id %>
+  <%= @person.country_id.nil? ? "" : @person.country.name %>
 </p>
 
 <p>
-  <b>Picture url:</b>
-  <%= @person.picture_url %>
+  <b>Picture:</b>
+  <%= image_tag @person.picture_url %>
 </p>
 
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Back', root_path %>

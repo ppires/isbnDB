@@ -1,0 +1,27 @@
+<h1> Search Results </h1>
+
+
+
+<% if @results %>
+
+  <% if @result_type == 'book' %>
+
+    <% @results.each do |result| %>
+
+      <%= link_to result.titulo, book_path(result.id) %><br />
+
+    <% end %>
+
+    <br />
+
+  <% else %>
+
+    <% @results.each do |result| %>
+
+      <%= link_to result.name, person_path(result.id) %><br />
+
+    <% end %>
+
+  <% end %>
+
+<% end %>

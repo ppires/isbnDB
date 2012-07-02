@@ -11,20 +11,31 @@
 </p>
 
 <p>
-  <b>Genre:</b>
-  <%= @book.genre_id %>
+  <b>Autor(es):</b>
+  <% @book.authors.each do |author| %>
+    <%= link_to author.name, person_path(author) %><br />
+  <% end %>
 </p>
 
 <p>
-  <b>Has ebook:</b>
-  <%= @book.has_ebook %>
+  <b>Gênero:</b>
+  <%= @book.genre.name %>
 </p>
 
 <p>
-  <b>Cover url:</b>
-  <%= @book.cover_url %>
+  <b>Preço:</b>
+  $<%= @book.price %>
+</p>
+
+<p>
+  <b>Versão em e-book?</b>
+  <%= @book.has_ebook ? "Sim" : "Não" %>
+</p>
+
+<p>
+  <b>Capa:</b>
+  <%= image_tag @book.cover_url %>
 </p>
 
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Back', root_path %>

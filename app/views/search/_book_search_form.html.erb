@@ -1,7 +1,7 @@
 <%= form_tag(book_search_path) do -%>
 
   <p>
-    <%= label_tag 'Book Title' %><br />
+    <%= label_tag 'Título' %><br />
     <%= text_field_tag 'book[name]' %>
   </p>
 
@@ -12,7 +12,7 @@
 
   <p>
     <%= label_tag 'Preço' %><br />
-    <%= text_field_tag 'book[price]' %>
+    de <%= text_field_tag 'book[price_low]' %> até <%= text_field_tag 'book[price_high]' %>
   </p>
 
   <p>
@@ -22,7 +22,12 @@
 
   <p>
     <%= label_tag 'Gênero' %><br />
-    <%= select_tag 'book[genre]', options_from_collection_for_select(@genres, 'id', 'name') %>
+    <%= select_tag 'book[genre]', options_from_collection_for_select(@genres, 'id', 'name'), :include_blank => true %>
+  </p>
+
+  <p>
+    <%= label_tag 'Participantes' %><br />
+    <%= text_field_tag 'book[person]' %>
   </p>
 
   <p>

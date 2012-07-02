@@ -1,28 +1,23 @@
 <%= form_tag(author_search_path) do -%>
 
   <p>
-    <%= label_tag 'Book Title' %><br />
-    <%= text_field_tag 'book[name]' %>
+    <%= label_tag 'Nome' %><br />
+    <%= text_field_tag 'person[name]' %>
   </p>
 
   <p>
-    <%= label_tag 'ISBN' %><br />
-    <%= text_field_tag 'book[ISBN]' %>
+    <%= label_tag 'Cidade' %><br />
+    <%= text_field_tag 'person[city]' %>
   </p>
 
   <p>
-    <%= label_tag 'Preço' %><br />
-    <%= text_field_tag 'book[price]' %>
+    <%= label_tag 'País' %><br />
+    <%= text_field_tag 'person[country]' %>
   </p>
 
   <p>
-    <%= label_tag 'Ano de Lançamento' %><br />
-    <%= select_tag 'book[release_year]', @years_for_select.html_safe %>
-  </p>
-
-  <p>
-    <%= label_tag 'Gênero' %><br />
-    <%= select_tag 'book[genre]', options_from_collection_for_select(@genres, 'id', 'name') %>
+    <%= label_tag 'Nome de Livro que Participou' %><br />
+    <%= text_field_tag 'person[book]' %>
   </p>
 
   <p>

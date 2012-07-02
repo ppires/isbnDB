@@ -23,4 +23,14 @@ class Person < ActiveRecord::Base
       self.destroy
     end
   end
+
+
+  def self.search person_info
+    @people = Person.unscoped
+    @people = @people.where('name LIKE ? OR first_name LIKE ? OR last_name LIKE ?', "%#{person_info['name']}%", "%#{person_info['name']}%", "%#{person_info['name']}%") if person_info['name'].present?
+#    @people = @people.where('birth > ? AND birth < ?', Date.new(person_info['birth_year'], 1, 1), Date.new(person_info['birth_year'], 12, 31)) if person_info['birth_year'].present?
+    @people = @people.joins(:city).where('cities.name LIKE ?', "%#{person_info[:city]}%") if person_info[:city].present?
+    @people = @people.joins(:city).joins(:country).where('countries.name LIKE ?', "%#{person_info[:country]}%") if person_info[:country].present?
+    @people = @people.joins(:books).where('books.titulo LIKE ?', "%#{person_info[:book]}%")
+  end
 end
