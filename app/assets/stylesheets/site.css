@@ -1,0 +1,52 @@
+.body
+{
+	margin: 0px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	size:11px;
+	color:#666666;
+	/*background:url(../img/background.jpg);
+	background-repeat:repeat-x;*/
+	background-color:#666666;
+}
+
+
+
+.top
+{
+	background-image:url(top2.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+}
+
+.barra
+{
+	background-image:url(barra2.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+}
+
+
+.menu
+{
+	text-align: center;
+	width:200px;
+	height:60px;
+	background-position:0px 0px;
+}
+
+.menu:hover{
+	text-align: center;
+	cursor:pointer;
+	width:200px;
+	height:60px;
+	background-image:url(selected.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+}
+
+
+.branco
+{
+	background-color:#FFFFFF;
+}
+
