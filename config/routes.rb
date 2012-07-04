@@ -9,7 +9,7 @@ IsbnDB::Application.routes.draw do
 
   resources :books do
     collection do
-      post :search
+      get :search
     end
   end
 
@@ -19,16 +19,20 @@ IsbnDB::Application.routes.draw do
 
   resources :authorships
 
-  resources :people
+  resources :people do
+    collection do
+      get :search
+    end
+  end
 
-  match 'search/index' => 'search#index', :as => 'search', :via => 'get'
+#  match 'search/index' => 'search#index', :as => 'search', :via => 'get'
   match 'search/books' => 'search#books', :as => 'book_search', :via => 'post'
   match 'search/authors' => 'search#authors', :as => 'author_search', :via => 'post'
 
   match '/rankings/mais-vendidos' => 'rankings#_mais_vendidos', :as => 'ranking_mais_vendidos', :via => 'get'
 
 
-  root :to => 'search#index'
+  root :to => 'application#inicio'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -82,6 +82,8 @@ class BooksController < ApplicationController
   end
 
   def search
-
+    @years_for_select = "<option selected=\"selected\"></option>"
+    1900.upto(2012) {|i| @years_for_select += "<option>#{i}</option>"}
+    @genres = Genre.order('name').all
   end
 end
