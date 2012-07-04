@@ -1,36 +1,109 @@
 <%= form_tag(book_search_path) do -%>
 
-  <p>
-    <%= label_tag 'Título' %><br />
-    <%= text_field_tag 'book[name]' %>
-  </p>
+<table width="580px" align="center">
 
-  <p>
-    <%= label_tag 'ISBN' %><br />
-    <%= text_field_tag 'book[ISBN]' %>
-  </p>
+<tr>
+<td height="50px"></td>
+<td height="50px"></td>
+</tr>
 
-  <p>
-    <%= label_tag 'Preço' %><br />
-    de <%= text_field_tag 'book[price_low]' %> até <%= text_field_tag 'book[price_high]' %>
-  </p>
 
-  <p>
-    <%= label_tag 'Ano de Lançamento' %><br />
-    <%= select_tag 'book[release_year]', @years_for_select.html_safe %>
-  </p>
+<tr>
+<td><%= label_tag 'Título' %></td>
+<td align="left"><%= text_field_tag 'book[name]' %></td>
+</tr>
 
-  <p>
-    <%= label_tag 'Gênero' %><br />
-    <%= select_tag 'book[genre]', options_from_collection_for_select(@genres, 'id', 'name'), :include_blank => true %>
-  </p>
 
-  <p>
-    <%= label_tag 'Participantes' %><br />
-    <%= text_field_tag 'book[person]' %>
-  </p>
+<tr>
+<td height="10px"></td>
+<td height="10px"></td>
+</tr>
 
-  <p>
-    <%= submit_tag 'Search!' %>
-  </p>
+
+<tr>
+<td><%= label_tag 'ISBN' %></td>
+<td align="left"><%= text_field_tag 'book[ISBN]' %></td>
+</tr>
+
+
+<tr>
+<td height="10px"></td>
+<td height="10px"></td>
+</tr>
+
+
+<tr>
+<td><%= label_tag 'Preço' %></td>
+<td align="left">de <%= text_field_tag 'book[price_low]' %> até <%= text_field_tag 'book[price_high]' %></td>
+</tr>
+
+
+<tr>
+<td height="10px"></td>
+<td height="10px"></td>
+</tr>
+
+
+<tr>
+<td><%= label_tag 'Ano de Lançamento' %></td>
+<td align="left"><%= select_tag 'book[release_year]', @years_for_select.html_safe %></td>
+</tr>
+
+
+<tr>
+<td height="10px"></td>
+<td height="10px"></td>
+</tr>
+
+
+<tr>
+<td><%= label_tag 'Gênero' %></td>
+<td align="left"><%= select_tag 'book[genre]', options_from_collection_for_select(@genres, 'id', 'name'), :include_blank => true %></td>
+</tr>
+
+
+<tr>
+<td height="10px"></td>
+<td height="10px"></td>
+</tr>
+
+
+<tr>
+<td><%= label_tag 'Participantes' %></td>
+<td align="left"><%= text_field_tag 'book[person]' %></td>
+</tr>
+
+
+<tr>
+<td height="10px"></td>
+<td height="10px"></td>
+</tr>
+
+
+<tr>
+<td><%= label_tag 'Tem e-book?' %></td>
+<td align="left"><%= select_tag 'book[has_ebook]', options_for_select([["S/N", "-1"],["Sim", "1"], ["Não", "0"]]) %></td>
+</tr>
+
+
+<tr>
+<td height="10px"></td>
+<td height="10px"></td>
+</tr>
+
+
+<tr>
+<td align="center" colspan="2"><%= submit_tag 'Pesquisar' %></td>
+</tr>
+
+
+<tr>
+<td height="35px"></td>
+<td height="35px"></td>
+</tr>
+
+
 <% end -%>
+
+</table>
+

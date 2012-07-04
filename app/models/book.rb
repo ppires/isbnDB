@@ -102,7 +102,16 @@ class Book < ActiveRecord::Base
     books = books.joins(:additional_info).where('additional_infos.release_date = ?', book_info['release_date']) if book_info['release_date'].present?
     books = books.joins(:genre).where('genres.id = ?', book_info['genre'].to_i) if book_info['genre'].present?
     books = books.joins(:authors).where('people.name LIKE ?', "%#{book_info['person']}%") if book_info['person'].present?
+    if book_info == '1'
+       books = books.where('has_ebook IS NOT NULL')
+    end
+
+    if book_info == '0'
+       books = books.where('has_ebook IS NULL')
+    end
+
     return books
   end
 
 end
+

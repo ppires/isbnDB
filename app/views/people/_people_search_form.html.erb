@@ -1,26 +1,55 @@
 <%= form_tag(author_search_path) do -%>
+<table width="500px" align="center">
 
-  <p>
-    <%= label_tag 'Nome' %><br />
-    <%= text_field_tag 'person[name]' %>
-  </p>
+<tr>
+<td height="50px" ></td>
+</tr>
 
-  <p>
-    <%= label_tag 'Cidade' %><br />
-    <%= text_field_tag 'person[city]' %>
-  </p>
+<tr>
+<td><%= label_tag 'Nome' %></td>
+<td align="right"><%= text_field_tag 'person[name]' %></td>
+</tr>
 
-  <p>
-    <%= label_tag 'País' %><br />
-    <%= text_field_tag 'person[country]' %>
-  </p>
+<tr>
+<td height="10px" ></td>
+</tr>
 
-  <p>
-    <%= label_tag 'Nome de Livro que Participou' %><br />
-    <%= text_field_tag 'person[book]' %>
-  </p>
+<tr>
+<td><%= label_tag 'Cidade' %></td>
+<td align="right"><%= text_field_tag 'person[city]' %></td>
+</tr>
 
-  <p>
-    <%= submit_tag 'Search!' %>
-  </p>
+<tr>
+<td height="10px" ></td>
+</tr>
+
+<tr>
+<td><%= label_tag 'País' %></td>
+<td align="right"><%= text_field_tag 'person[country]' %></td>
+</tr>
+
+<tr>
+<td height="10px" ></td>
+</tr>
+
+<tr>
+<td><%= label_tag 'Nome de Livro que Participou' %></td>
+<td align="right"><%= text_field_tag 'person[book]' %></td>
+</tr>
+
+<tr>
+<td height="10px" ></td>
+</tr>
+
+<tr>
+<td colspan="2" align="center" ><%= submit_tag 'Pesquisar' %></td>
+</tr>
+
+<tr>
+<td height="80px" ></td>
+</tr>
+
+
+</table>
 <% end -%>
+

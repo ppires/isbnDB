@@ -1,27 +1,29 @@
-<h1> Search Results </h1>
+<h1 class="titulos"> Resultados </h1>
 
 
 
 <% if @results %>
 
   <% if @result_type == 'book' %>
-
+    <table width="820px">
     <% @results.each do |result| %>
-
-      <%= link_to result.titulo, book_path(result.id) %><br />
-
+      <tr class="<%=cycle('even', 'odd')%>">
+      <td><%= link_to result.titulo[0..70], book_path(result.id), :class => 'lista'%></td> <td><%= result.authors.first.nil? ? 'Não Cadastrado' : result.authors.first.name[0..20] %></td> <td>R$ <%= result.price %>0</td>
+      </tr>
     <% end %>
 
-    <br />
+    </table>
 
   <% else %>
-
+    <table width="860px">
     <% @results.each do |result| %>
-
-      <%= link_to result.name, person_path(result.id) %><br />
-
+      <tr class="<%=cycle('even', 'odd')%>">
+      <td><%= link_to result.name, person_path(result.id), :class => 'lista' %></td>
+      <td><%= result.books.first.nil? ? 'Não Cadastrado' : result.books.map {|resultado| resultado.titulo}  %></td>
+      </tr>
     <% end %>
-
+    </table>
   <% end %>
 
 <% end %>
+

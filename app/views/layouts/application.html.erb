@@ -29,9 +29,9 @@
 		  <table align="center" border="0" cellpadding="0" cellspacing="0" width="880px">
 		    <tr>
 			    <td width="40px"></td>
-			    <td class="menu" width="200px"><%= link_to "Início", root_path %></td>
-			    <td class="menu" width="200px"><%= link_to "Busca por Livros", search_books_path %></td>
-			    <td class="menu" width="200px"><%= link_to "Busca por Autores", search_people_path %></td>
+			    <td class="menu" width="200px""><%= link_to "Início", root_path, :class => 'menutext'%></td>
+			    <td class="menu" width="200px"><%= link_to "Busca por Livros", search_books_path, :class => 'menutext'%></td>
+			    <td class="menu" width="200px"><%= link_to "Busca por Autores", search_people_path, :class => 'menutext'%></td>
 			    <td class="menu" width="200px">linkaki</td>
 			    <td width="40px"></td>
 		    </tr>
@@ -53,9 +53,9 @@
   <tr>
     <td class="branco" width="10px"></td>
     <td class="branco">
-
-      <%= yield %>
-
+      <div class="conteudo">
+        <%= yield %>
+      </div>
     </td>
     <td class="branco" width="10px"></td>
   </tr>
@@ -74,3 +74,4 @@
 
 
 </body>
+
